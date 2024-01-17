@@ -38,6 +38,32 @@ class WsTransporter extends Client implements LeadExternal {
       console.log("Escanea el codigo QR que esta en la carepta tmp");
       this.generateImage(qr);
     });
+
+    this.on("message", async (message) => {
+      
+      if (message.from == `521${process.env.PHONE}@c.us`) {
+        try {
+
+            console.log('entro condición')
+
+            // let contacts = await client.getBlockedContacts()
+            
+            // console.log('contacts length ', contacts.length)
+            // console.log('contacts ', contacts)
+
+            //await client.muteChat(message.from, null)
+
+            //await client.archiveChat(message.from)
+            
+            await message.delete(true)
+
+        } catch (error) {
+            console.log('errror: ', error)
+        }
+        //await client.sendMessage(message.from, 'pong');
+      }
+    })
+
   }
 
   /**
