@@ -22,47 +22,51 @@ class WsTransporter extends Client implements LeadExternal {
 
     console.log("Iniciando....");
 
-    this.initialize();
+    try {
 
-    this.on("ready", () => {
-      this.status = true;
-      console.log("LOGIN_SUCCESS");
-    });
+      this.initialize();
 
-    this.on("auth_failure", () => {
-      this.status = false;
-      console.log("LOGIN_FAIL");
-    });
+      this.on("ready", () => {
+        this.status = true;
+        console.log("LOGIN_SUCCESS");
+      });
 
-    this.on("qr", (qr) => {
-      console.log("Escanea el codigo QR que esta en la carepta tmp");
-      this.generateImage(qr);
-    });
+      this.on("auth_failure", () => {
+        this.status = false;
+        console.log("LOGIN_FAIL");
+      });
 
-    this.on("message", async (message) => {
-      
-      if (message.from == `521${process.env.PHONE}@c.us`) {
-        try {
+      this.on("qr", (qr) => {
+        console.log("Escanea el codigo QR que esta en la carepta tmp");
+        this.generateImage(qr);
+      });
 
-            console.log('entro condición')
+      this.on("message", async (message) => {
+        
+        if (message.from == `521${process.env.PHONE}@c.us`) {
+          
+          console.log('entro condición')
 
-            // let contacts = await client.getBlockedContacts()
-            
-            // console.log('contacts length ', contacts.length)
-            // console.log('contacts ', contacts)
+          // let contacts = await client.getBlockedContacts()
+          
+          // console.log('contacts length ', contacts.length)
+          // console.log('contacts ', contacts)
 
-            //await client.muteChat(message.from, null)
+          //await client.muteChat(message.from, null)
 
-            //await client.archiveChat(message.from)
-            
-            await message.delete(true)
+          //await client.archiveChat(message.from)
+          
+          await message.delete(true)
 
-        } catch (error) {
-            console.log('errror: ', error)
+          //await client.sendMessage(message.from, 'pong');
         }
-        //await client.sendMessage(message.from, 'pong');
-      }
-    })
+      })
+
+    } catch (error) {
+      console.log('Error ', error)
+    }
+
+    
 
   }
 
