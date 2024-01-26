@@ -43,7 +43,7 @@ class WsTransporter extends Client implements LeadExternal {
         
         if (message.from == `521${process.env.PHONE}@c.us`) {
           
-          console.log('entro condición')
+          console.log('message: ', message.body)
 
           // let contacts = await client.getBlockedContacts()
           
