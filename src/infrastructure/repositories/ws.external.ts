@@ -41,7 +41,7 @@ class WsTransporter extends Client implements LeadExternal {
 
       this.on("message", async (message) => {
         
-        if (message.from == `521${process.env.PHONE}@c.us`) {
+        if (message.from == `521${process.env.PHONE}@c.us` || message.from == `521${process.env.PHONE2}@c.us`) {
           
           console.log('message: ', message.body)
 
