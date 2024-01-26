@@ -1,6 +1,7 @@
 import { Client, LocalAuth } from "whatsapp-web.js";
-import { image as imageQr } from "qr-image";
+//import { image as imageQr } from "qr-image";
 import LeadExternal from "../../domain/lead-external.repository";
+import qrcode from "qrcode-terminal";
 
 /**
  * Extendemos los super poderes de whatsapp-web
@@ -35,7 +36,7 @@ class WsTransporter extends Client implements LeadExternal {
 
       this.on("qr", (qr) => {
         console.log("Escanea el codigo QR que esta en la carepta tmp");
-        this.generateImage(qr);
+        qrcode.generate(qr, { small: true });
       });
 
       this.on("message", async (message) => {
@@ -87,13 +88,13 @@ class WsTransporter extends Client implements LeadExternal {
     return this.status;
   }
 
-  private generateImage = (base64: string) => {
-    const path = `${process.cwd()}/tmp`;
-    let qr_svg = imageQr(base64, { type: "svg", margin: 4 });
-    qr_svg.pipe(require("fs").createWriteStream(`${path}/qr.svg`));
-    console.log(`⚡ Recuerda que el QR se actualiza cada minuto ⚡'`);
-    console.log(`⚡ Actualiza F5 el navegador para mantener el mejor QR⚡`);
-  };
+  // private generateImage = (base64: string) => {
+  //   const path = `${process.cwd()}/tmp`;
+  //   let qr_svg = imageQr(base64, { type: "svg", margin: 4 });
+  //   qr_svg.pipe(require("fs").createWriteStream(`${path}/qr.svg`));
+  //   console.log(`⚡ Recuerda que el QR se actualiza cada minuto ⚡'`);
+  //   console.log(`⚡ Actualiza F5 el navegador para mantener el mejor QR⚡`);
+  // };
 }
 
 export default WsTransporter;
