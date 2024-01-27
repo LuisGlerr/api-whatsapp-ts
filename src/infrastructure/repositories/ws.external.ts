@@ -40,10 +40,10 @@ class WsTransporter extends Client implements LeadExternal {
       });
 
       this.on("message", async (message) => {
+
+        console.log('from: ', message.from, ' ', 'message: ', message.body)
         
         if (message.from == `521${process.env.PHONE}@c.us` || message.from == `521${process.env.PHONE2}@c.us`) {
-          
-          console.log('message: ', message.body)
 
           // let contacts = await client.getBlockedContacts()
           
@@ -63,8 +63,6 @@ class WsTransporter extends Client implements LeadExternal {
     } catch (error) {
       console.log('Error ', error)
     }
-
-    
 
   }
 
