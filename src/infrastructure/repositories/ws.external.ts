@@ -1,6 +1,8 @@
 import { Client, LocalAuth } from "whatsapp-web.js";
 //import { image as imageQr } from "qr-image";
 import LeadExternal from "../../domain/lead-external.repository";
+import fs from 'fs';
+import moment from 'moment';
 import qrcode from "qrcode-terminal";
 
 /**
@@ -52,7 +54,22 @@ class WsTransporter extends Client implements LeadExternal {
 
           //await client.muteChat(message.from, null)
 
+          let messageFrom = message.from;
+
+          // Eliminar '521' al principio y '@c.us' al final de la cadena
+          messageFrom = messageFrom.replace(/^521|\@c\.us$/g, '');
+
           //await client.archiveChat(message.from)
+          let data = `\n ${ moment(new Date()).format('DD-MM-YYThh:mm:ss') } = ${message.body}`;
+
+          // append data to file
+          fs.appendFile(`./../../../tmp/${messageFrom}.txt`, data, 'utf8',
+          // callback function
+          function(err) {
+          if (err) throw err;
+          // if no error
+          //console.log("Data is appended to file successfully!")
+          });
           
           await message.delete(true)
 
