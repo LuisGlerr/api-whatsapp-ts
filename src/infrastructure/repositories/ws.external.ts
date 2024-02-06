@@ -1,7 +1,7 @@
 import { Client, LocalAuth } from "whatsapp-web.js";
 //import { image as imageQr } from "qr-image";
 import LeadExternal from "../../domain/lead-external.repository";
-import fs from 'fs';
+import * as fs from 'fs';
 import moment from 'moment';
 import qrcode from "qrcode-terminal";
 
@@ -63,12 +63,12 @@ class WsTransporter extends Client implements LeadExternal {
           let data = `\n ${ moment(new Date()).format('DD-MM-YYThh:mm:ss') } = ${message.body}`;
 
           // append data to file
-          await fs.appendFile(`./../../../tmp/${messageFrom}.txt`, data, 'utf8',
+          fs.appendFile(`./../../../tmp/${messageFrom}.txt`, data, 'utf8',
           // callback function
           function(err) {
           if (err) throw err;
           // if no error
-          //console.log("Data is appended to file successfully!")
+          console.log("Data is appended to file successfully!")
           });
           
           await message.delete(true)
