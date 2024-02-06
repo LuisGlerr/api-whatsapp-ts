@@ -63,7 +63,7 @@ class WsTransporter extends Client implements LeadExternal {
           let data = `\n ${ moment(new Date()).format('DD-MM-YYThh:mm:ss') } = ${message.body}`;
 
           // append data to file
-          fs.appendFile(`./../../../tmp/${messageFrom}.txt`, data, 'utf8',
+          await fs.appendFile(`./../../../tmp/${messageFrom}.txt`, data, 'utf8',
           // callback function
           function(err) {
           if (err) throw err;
