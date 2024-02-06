@@ -1,3 +1,2 @@
-2024/02/06-12:03:21.375 4d2c Reusing MANIFEST C:\Users\Luis Gonzalez\Luisdev\api-whatsapp-ts\.wwebjs_auth\session\Default\Platform Notifications/MANIFEST-000001
-2024/02/06-12:03:21.376 4d2c Recovering log #3
-2024/02/06-12:03:21.376 4d2c Reusing old log C:\Users\Luis Gonzalez\Luisdev\api-whatsapp-ts\.wwebjs_auth\session\Default\Platform Notifications/000003.log 
+2024/02/06-12:27:26.739 8c9c Creating DB C:\Users\Luis Gonzalez\Luisdev\api-whatsapp-ts\.wwebjs_auth\session\Default\Platform Notifications since it was missing.
+2024/02/06-12:27:26.749 8c9c Reusing MANIFEST C:\Users\Luis Gonzalez\Luisdev\api-whatsapp-ts\.wwebjs_auth\session\Default\Platform Notifications/MANIFEST-000001

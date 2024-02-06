@@ -1,3 +1,2 @@
-2024/02/06-12:03:21.374 9e04 Reusing MANIFEST C:\Users\Luis Gonzalez\Luisdev\api-whatsapp-ts\.wwebjs_auth\session\Default\Local Storage\leveldb/MANIFEST-000001
-2024/02/06-12:03:21.386 9e04 Recovering log #3
-2024/02/06-12:03:21.387 9e04 Reusing old log C:\Users\Luis Gonzalez\Luisdev\api-whatsapp-ts\.wwebjs_auth\session\Default\Local Storage\leveldb/000003.log 
+2024/02/06-12:26:59.411 ab7c Creating DB C:\Users\Luis Gonzalez\Luisdev\api-whatsapp-ts\.wwebjs_auth\session\Default\Local Storage\leveldb since it was missing.
+2024/02/06-12:26:59.454 ab7c Reusing MANIFEST C:\Users\Luis Gonzalez\Luisdev\api-whatsapp-ts\.wwebjs_auth\session\Default\Local Storage\leveldb/MANIFEST-000001
