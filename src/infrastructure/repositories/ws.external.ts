@@ -10,6 +10,7 @@ import qrcode from "qrcode-terminal";
  */
 class WsTransporter extends Client implements LeadExternal {
   private status = false;
+  
 
   constructor() {
     super({
